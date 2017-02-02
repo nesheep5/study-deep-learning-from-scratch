@@ -18,3 +18,19 @@ class MulLayer:
 
         return dx, dy
 
+# 加算レイヤー
+class AddLayer:
+    def __init__(self):
+        # passは「何も行わない」という命令
+        pass
+
+    # 順伝搬
+    def forward(self, x, y):
+        return x + y
+
+    # 逆伝搬 dout:微分値
+    def backword(self, dout):
+        dx = dout * 1
+        dy = dout * 1
+
+        return dx, dy
