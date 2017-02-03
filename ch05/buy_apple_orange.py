@@ -1,4 +1,3 @@
-# coding: utf-8
 from layer_naive import *
 
 # リンゴ(100円)✕2+オレンジ(150円)✕3 (消費税10%)
