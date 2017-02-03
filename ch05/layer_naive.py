@@ -29,7 +29,7 @@ class AddLayer:
         return x + y
 
     # 逆伝搬 dout:微分値
-    def backword(self, dout):
+    def backward(self, dout):
         dx = dout * 1
         dy = dout * 1
 

@@ -23,7 +23,7 @@ price = mul_tax_layer.forward(all_price, tax)
 #順伝搬の逆順に実行
 dprice = 1
 dall_price, dtax = mul_tax_layer.backward(dprice)
-dapple_price, dorange_price = add_apple_orange_layer.backword(dall_price)
+dapple_price, dorange_price = add_apple_orange_layer.backward(dall_price)
 dorange, dorange_num = mul_orange_layer.backward(dorange_price)
 dapple, dapple_num = mul_apple_layer.backward(dapple_price)
 
