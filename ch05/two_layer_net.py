@@ -10,8 +10,20 @@ class TwoLayerNet:
 
     # 初期化処理
     # 引数: 入力層のニューロン数、隠れ層のニューロン数、出力層のニューロン数ｍ重み初期化字のガウス分布のスケール
-    def __init__(self,input_size,hidden_size, output_size, weight_init_std):
-        # TODO 未実装
+    def __init__(self,input_size, hidden_size, output_size, weight_init_std):
+        # 重みの初期化
+        self.param = {}
+        self.param['W1'] = weight_init_std * np.random.randn(input_size, hidden_size)
+        self.param['b1'] = np.zeros(hidden_size)
+        self.param['W2'] = weight_init_std * np.random.randn(hidden_size, output_size)
+        self.param['b2'] = np.zeros(output_size)
+
+        # レイヤの生成
+        self.layers = OrderedDict()
+        self.layers['Affin1'] = Affine(self.params['W1'], self.params['b1'])
+        self.layers['Relu1'] = Relu()
+        self.layers['Affin2'] = Affine(self.params['W2'], self.params['b2'])
+        self.lastLayer = SoftmaxWithLoss()
 
     #  認識(推論)をおこなう
     # 引数 x： 画像データ
